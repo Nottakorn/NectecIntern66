@@ -1,0 +1,8 @@
+prefix=/home/asus/Nectec_ws/devel
+
+Name: nectec
+Description: Description of nectec
+Version: 0.0.0
+Cflags: -I/home/asus/Nectec_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

@@ -1,0 +1,2 @@
+nectec
+-DCATKIN_DEVEL_PREFIX=/home/asus/Nectec_ws/devel -DCMAKE_INSTALL_PREFIX=/home/asus/Nectec_ws/install -G Unix Makefiles

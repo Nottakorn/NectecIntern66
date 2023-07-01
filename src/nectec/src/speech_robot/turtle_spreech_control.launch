@@ -1,0 +1,9 @@
+<launch>
+	<!-- Turtlesim nide -->
+	<node pkg = "turtlesim" type ="turtlesim_node" name="sim"/>
+
+	<!-- Control -->
+	<node pkg = "your_package" type = "smach_turtle_voice.py" name = "Turtle_Control_State">
+	</node>
+</launch>
+
