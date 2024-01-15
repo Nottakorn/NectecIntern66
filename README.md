@@ -190,4 +190,34 @@ class RobotState(object):
                                transitions={'finished':'Soundcommand'})
 ```
 
-state one : select connad you want by if you
+state one : select command you want by if you want to command with gesture you must Raise your hand for 3 seconds or you want to use sound to command say 'เริ่ม' or you want to command both vy voice and gesture you can say 'เริ่ม'
+```py
+class SelectMode(smach.State):
+    def __init__(self, outcomes=['Hand', 'Sound','Mixed','success']):
+        super().__init__(outcomes)
+        rospy.Subscriber('/Hand/nectec',Handdection,self.callback_Hand)
+        rospy.Subscriber('microphone',TextWithMic,self.callback)
+        self.Handdec = Handdection()
+        self.voice = TextWithMic()
+    def callback_Hand(self,data):
+        self.Handdec = data
+        print(self.Handdec)
+    def callback(self,data):
+        self.voice = data.mic
+        print(self.voice)
+    def execute(self, ud):
+        rospy.loginfo("Executing state Handdectectype")
+        while True:
+           # print(self.Handdec)
+            #print(self.voice)
+            if (self.Handdec.success) == True:
+                rospy.sleep(3)
+                if (self.Handdec.success == True):
+                    return 'Hand'
+            elif(self.voice == 'เริ่ม'):
+                return 'Sound'
+            elif(self.voice == 'รวม'):
+                return 'Mixed'
+            if (self.voice == "หยุด การ ทำ งาน"):
+                return 'success'
+```
