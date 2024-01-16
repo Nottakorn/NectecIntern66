@@ -7,7 +7,7 @@ By Nottakorn Sukmanont from Kasetsart University
 Detail : linirobot with jetson-nano and csi-camera
 
 follow me step by step
-## launch you robot
+## launch your robot
 ```
 roslaunch linorobot bringup.launch
 ```
