@@ -32,7 +32,7 @@ rosrun nectec DetecHand1.1.py
 ```py
 detector = HandDetector(detectionCon=0.5, maxHands= 1) #sure 80 = detect
 ```
-  2. subscrib image from csi camera and setup another tools example service , publish data to statemachine
+  2. subscribe image from csi camera and setup another tools example service , publish data to statemachine
 ```py
         rospy.init_node('hand_detectype', anonymous= True )
         self.img_sub = rospy.Subscriber("/usb_cam/image_raw", Image, callback = self.image_callback)
